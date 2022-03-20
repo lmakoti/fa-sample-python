@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+import starlette.responses as _responses
 import requests #get the data from the worldtime api
 
 
@@ -15,7 +16,7 @@ class City(BaseModel):
 #get_all
 @app.get('/')
 def index():
-	return {'key': 'value'}
+	return _responses.RedirectResponse("/docs")
 
 #get cities
 @app.get('/cities')
